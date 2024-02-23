@@ -1,0 +1,78 @@
+
+import React from 'react';
+import { SafeAreaView, View, Text, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
+
+const { height } = Dimensions.get('window'); // Get the screen height
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        <Text style={styles.heading}>Welcome to PropelPixel</Text>
+        <Text style={styles.subheading}>Ready to change the world?</Text>
+        <TouchableOpacity style={styles.button} onPress={() => alert('Start Pressed!')}>
+          <Text style={styles.buttonText}>Start</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.imageContainer}>
+        <Image source={require('./assets/windmill.png')} style={styles.windmill} />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000', // Black background
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: height * 0.2, // Pushes the content up by 20% 
+  },
+  heading: {
+    color: '#fff', // White color for the heading
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 8, // Margin between the heading and subheading
+  },
+  subheading: {
+    color: '#fff', // White color for the subheading
+    fontSize: 20,
+    marginBottom: 32, // Margin between the subheading and button
+  },
+  button: {
+    paddingHorizontal: 64, // Horizontal padding 
+    paddingVertical: 12, // Vertical padding 
+    backgroundColor: 'green', // Green background 
+    borderRadius: 30, // Border radius 
+    elevation: 3, // Drop shadow for Android
+    shadowColor: '#000', // For iOS shadow
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  buttonText: {
+    color: '#fff', // White text for the button
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  imageContainer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: '39%',
+  },
+  windmill: {
+    flex: 1,
+    width: '100%',
+    resizeMode: 'contain',
+  },
+});
+
+export default App;
